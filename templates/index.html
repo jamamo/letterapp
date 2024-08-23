@@ -3,120 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clinic Letter Generator</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
+    <title>Form Page</title>
     <style>
         body {
-            background-color: #f8f9fa;
-            font-family: 'Helvetica', sans-serif;
-        }
-        .container {
-            max-width: 700px;
-            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
             padding: 20px;
-            margin-top: 50px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            background-color: #f4f4f4;
         }
-        h1 {
-            font-size: 24px;
-            color: #2E86C1;
-            margin-bottom: 20px;
-            text-align: center;
-            font-weight: bold;
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 0 auto;
         }
         label {
+            display: block;
+            margin-bottom: 8px;
             font-weight: bold;
-            margin-bottom: 5px;
-            color: #333;
         }
-        input[type="text"], textarea {
-            border-radius: 5px;
-            border: 1px solid #ced4da;
-            padding: 10px;
+        input[type="text"],
+        input[type="email"] {
             width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
-        textarea {
-            resize: none;
-        }
+        input[type="submit"],
+        input[type="reset"],
         button {
-            background-color: #1E8449;
-            color: white;
             padding: 10px 20px;
-            font-size: 16px;
+            margin-right: 10px;
             border: none;
-            border-radius: 5px;
-            width: 100%;
+            border-radius: 4px;
             cursor: pointer;
         }
-        button:hover {
-            background-color: #148f3f;
+        input[type="submit"] {
+            background-color: #28a745;
+            color: #fff;
         }
-        .form-group {
-            margin-bottom: 15px;
+        input[type="reset"] {
+            background-color: #dc3545;
+            color: #fff;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
         }
     </style>
+    <script>
+        function resetForm() {
+            document.getElementById("myForm").reset();
+        }
+    </script>
 </head>
 <body>
 
-<div class="container">
-    <h1>Clinic Letter Generator</h1>
-    <form method="POST">
-        <div class="form-group">
-            <label for="referring_doctor">Referring Doctor:</label>
-            <input type="text" id="referring_doctor" name="referring_doctor" required>
-        </div>
-        <div class="form-group">
-            <label for="patient_name">Patient Name:</label>
-            <input type="text" id="patient_name" name="patient_name" required>
-        </div>
-        <div class="form-group">
-            <label for="nhs_number">NHS Number:</label>
-            <input type="text" id="nhs_number" name="nhs_number" required>
-        </div>
-        <div class="form-group">
-            <label for="date_of_clinic">Date of Clinic:</label>
-            <input type="text" id="date_of_clinic" name="date_of_clinic" required>
-        </div>
-        <div class="form-group">
-            <label for="store_name">Store Name:</label>
-            <input type="text" id="store_name" name="store_name" required>
-        </div>
-        <div class="form-group">
-            <label for="store_phone_number">Store Phone Number:</label>
-            <input type="text" id="store_phone_number" name="store_phone_number" required>
-        </div>
-        <div class="form-group">
-            <label for="audiologist">Audiologist:</label>
-            <input type="text" id="audiologist" name="audiologist" required>
-        </div>
-        <div class="form-group">
-            <label for="history">History:</label>
-            <textarea id="history" name="history" rows="3" required></textarea>
-        </div>
-        <div class="form-group">
-            <label for="otoscopy">Otoscopy:</label>
-            <textarea id="otoscopy" name="otoscopy" rows="3" required></textarea>
-        </div>
-        <div class="form-group">
-            <label for="pta">PTA:</label>
-            <textarea id="pta" name="pta" rows="3" required></textarea>
-        </div>
-        <div class="form-group">
-            <label for="individual_management_plan">Individual Management Plan:</label>
-            <textarea id="individual_management_plan" name="individual_management_plan" rows="3" required></textarea>
-        </div>
-        <div class="form-group">
-            <label for="additional_notes">Additional Notes:</label>
-            <textarea id="additional_notes" name="additional_notes" rows="3"></textarea>
-        </div>
-        <button type="submit">Generate Clinic Letter</button>
-    </form>
-</div>
+    <h1>Contact Form</h1>
+    <form id="myForm" action="/submit" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <!-- Add more fields as necessary -->
+        
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+        <!-- Optional: If you prefer to use JavaScript for reset -->
+        <!-- <button type="button" onclick="resetForm()">Reset</button> -->
+    </form>
+
 </body>
 </html>
+
