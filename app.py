@@ -15,7 +15,7 @@ app = Flask(__name__)
 def index():
     if request.method == "POST":
         # Get form data
-        referring_doctor = request.form.get("referring_doctor")
+        GP_practice = request.form.get("GP_practice")
         patient_name = request.form.get("patient_name")
         nhs_number = request.form.get("nhs_number")
         date_of_clinic = request.form.get("date_of_clinic")
@@ -76,7 +76,7 @@ def index():
         doc.add_heading('Patient Details', level=2)
         doc.add_paragraph(f"Patient Name: {patient_name}")
         doc.add_paragraph(f"NHS Number: {nhs_number}")
-        doc.add_paragraph(f"Referring GP: {referring_doctor}")
+        doc.add_paragraph(f"GP Practice: {GP_practice}")
         doc.add_paragraph(f"Clinic Date: {date_of_clinic}")
 
         doc.add_paragraph("\n")
